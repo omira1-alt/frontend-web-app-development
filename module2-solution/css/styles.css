@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+header {
+    padding: 20px;
+    text-align: center; 
+}
+
+.site-title {
+    font-size: 2rem;
+    color: #333;
+}
+
+.site-title-mobile {
+    display: none;
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    overflow: hidden; 
+}
+
+.box {
+    float: left;
+    border: 2px solid black;  
+    padding: 20px;
+    margin-right: 20px;
+    height: 170px; 
+    overflow: hidden; 
+    transition: all 0.3s ease;
+    background-color: #8a8a8a; 
+    position: relative; 
+    color: black; 
+    cursor: default; 
+}
+
+.box:last-child {
+    margin-right: 0;
+}
+
+
+.box:hover {
+    overflow-y: auto; 
+    cursor: ns-resize; 
+}
+
+.box-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 20px; 
+    border: 2px solid black;  
+    font-weight: bold;
+    margin: 0; 
+}
+
+.chicken .box-title {
+    background-color: rgb(206, 113, 113);
+    color: black; 
+}
+
+.beef .box-title {
+    background-color: rgb(128, 0, 0);
+    color: white; 
+}
+
+.sushi .box-title {
+    background-color: #d4be5d; 
+    color: black; 
+}
+
+.box p {
+    margin-top: 30px; 
+}
+
+@media (min-width: 992px) {
+    .box {
+        width: 32%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .box {
+        width: 48%;
+        margin-bottom: 20px;
+        margin-right: 4%; 
+    }
+
+    .box:nth-child(2) { 
+        margin-right: 0; 
+    }
+
+    .box:nth-child(3) { 
+        width: calc(48% * 2 + 4%); 
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    
+    .site-title {
+        display: none;
+    }
+
+    .site-title-mobile {
+        display: block;
+        margin-bottom: 20px;
+        text-align: left;
+        font-size: 1.2rem; 
+        font-family: 'Courier New', monospace; 
+        width: 90%; 
+    }
+    
+    .box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .box-title {
+        text-align: center;
+        padding: 10px; 
+        box-sizing: border-box;
+        top: 0;
+        right: 0;
+        left: auto;
+    }
+
+    
+    .box p {
+        margin-top: 80px; 
+    }
+}
