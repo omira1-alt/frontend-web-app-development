@@ -1,0 +1,83 @@
+<h2>Sign Up</h2>
+
+<form name="signUpForm" novalidate>
+
+  <!-- First Name -->
+  <input type="text"
+         name="firstName"
+         ng-model="$ctrl.user.firstName"
+         placeholder="First Name"
+         required>
+
+  <span ng-if="signUpForm.firstName.$touched && signUpForm.firstName.$invalid">
+    First name is required
+  </span>
+
+  <br><br>
+
+  <!-- Last Name -->
+  <input type="text"
+         name="lastName"
+         ng-model="$ctrl.user.lastName"
+         placeholder="Last Name"
+         required>
+
+  <span ng-if="signUpForm.lastName.$touched && signUpForm.lastName.$invalid">
+    Last name is required
+  </span>
+
+  <br><br>
+
+  <!-- Email -->
+  <input type="email"
+         name="email"
+         ng-model="$ctrl.user.email"
+         placeholder="Email"
+         required>
+
+  <span ng-if="signUpForm.email.$touched && signUpForm.email.$invalid">
+    Valid email is required
+  </span>
+
+  <br><br>
+
+  <!-- Phone -->
+  <input type="text"
+         name="phone"
+         ng-model="$ctrl.user.phone"
+         placeholder="Phone (10 digits)"
+         required
+         ng-pattern="/^\d{10}$/">
+
+  <span ng-if="signUpForm.phone.$touched && signUpForm.phone.$invalid">
+    Valid 10-digit phone number required
+  </span>
+
+  <br><br>
+
+  <!-- Favorite Menu Item -->
+  <input type="text"
+         name="favorite"
+         ng-model="$ctrl.user.favorite"
+         placeholder="Favorite Menu Number"
+         required
+         ng-blur="$ctrl.checkFavorite()">
+
+  <span ng-if="$ctrl.invalidFavorite" style="color:red;">
+    No such menu number exists
+  </span>
+
+  <br><br>
+
+  <!-- Submit Button -->
+  <button ng-click="$ctrl.submit()"
+          ng-disabled="signUpForm.$invalid || $ctrl.invalidFavorite">
+    Submit
+  </button>
+
+</form>
+
+<!-- Success message -->
+<p ng-if="$ctrl.completed" style="color:green;">
+  Your information has been saved.
+</p>

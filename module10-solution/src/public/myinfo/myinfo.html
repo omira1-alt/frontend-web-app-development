@@ -1,0 +1,41 @@
+<div class="container">
+
+  <h2>My Info</h2>
+
+  <!-- CASE 1: User is NOT registered -->
+  <div ng-if="!$ctrl.user">
+    <p>Not Signed Up Yet.</p>
+    <p>
+      <a ui-sref="public.signup">Sign up Now!</a>
+    </p>
+  </div>
+
+  <!-- CASE 2: User IS registered -->
+  <div ng-if="$ctrl.user">
+
+    <h3>Personal Information</h3>
+
+    <p><strong>First Name:</strong> {{$ctrl.user.firstName}}</p>
+    <p><strong>Last Name:</strong> {{$ctrl.user.lastName}}</p>
+    <p><strong>Email:</strong> {{$ctrl.user.email}}</p>
+    <p><strong>Phone:</strong> {{$ctrl.user.phone}}</p>
+
+    <hr>
+
+    <h3>Favorite Menu Item</h3>
+
+    <div ng-if="$ctrl.user.menuItem">
+
+      <h4>{{$ctrl.user.menuItem.name}}</h4>
+
+      <p>{{$ctrl.user.menuItem.description}}</p>
+
+      <img class="img-responsive"
+           ng-src="https://coursera-jhu-default-rtdb.firebaseio.com/images/{{$ctrl.user.favorite}}.jpg"
+           alt="Favorite menu item image">
+
+    </div>
+
+  </div>
+
+</div>
